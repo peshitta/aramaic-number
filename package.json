@@ -1,7 +1,7 @@
 {
   "name": "aramaic-number",
   "version": "1.0.0",
-  "description": "Convert numbers to aramaic representation, and vice-versa.',
+  "description": "Convert numbers to aramaic representation, and vice-versa.",
   "main": "build/aramaic-number.js",
   "main݂Min": "build/aramaic-number.min.js",
   "module": "build/aramaic-number.esm.js",
