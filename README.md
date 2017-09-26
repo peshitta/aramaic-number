@@ -25,7 +25,7 @@ Following bundles are available:
 libraries and applications
 
 The package could also be downloaded directly from:
-[https://registry.npmjs.org/aramaic-number/-/aramaic-number-1.0.0.tgz](https://registry.npmjs.org/aramaic-number/-/aramaic-number-1.0.0.tgz)
+[https://registry.npmjs.org/aramaic-number/-/aramaic-number-1.0.1.tgz](https://registry.npmjs.org/aramaic-number/-/aramaic-number-1.0.1.tgz)
 
 ## More information
 
@@ -98,9 +98,9 @@ When passing a number, a second parameter is available, `limit`. This will
 limit the length of the returned string to a number of digits. For example:
 
 ```js
-getNumber(5774) // התשע"ד - ordinary
-getNumber(5774, 3) // תשע"ד - cropped to 774
-getNumber(5774, 7) // התשע"ד - kept at 5774
+getNumber(5774) // התשע״ד - ordinary
+getNumber(5774, 3) // תשע״ד - cropped to 774
+getNumber(5774, 7) // התשע״ד - kept at 5774
 ```
 
 **Kind**: instance method of [<code>AramaicNumber</code>](#module_aramaic.AramaicNumber)  

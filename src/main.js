@@ -195,9 +195,9 @@ export default function AramaicNumber(writing) {
    * limit the length of the returned string to a number of digits. For example:
    *
    * ```js
-   * getNumber(5774) // התשע"ד - ordinary
-   * getNumber(5774, 3) // תשע"ד - cropped to 774
-   * getNumber(5774, 7) // התשע"ד - kept at 5774
+   * getNumber(5774) // התשע״ד - ordinary
+   * getNumber(5774, 3) // תשע״ד - cropped to 774
+   * getNumber(5774, 7) // התשע״ד - kept at 5774
    * ```
    * @alias module:aramaic.AramaicNumber#getNumber
    * @param { string } number input number to be converted
@@ -211,7 +211,7 @@ export default function AramaicNumber(writing) {
     }
     const str = typeof num === 'string';
     if (str) {
-      num = num.replace(/('|")/g, '');
+      num = num.replace(/('|")/g, '').replace(/(׳|״)/g, '');
     }
     num = num
       .toString()
@@ -246,9 +246,9 @@ export default function AramaicNumber(writing) {
         .split('');
 
       if (num.length === 1) {
-        num.push("'");
+        num.push('׳');
       } else if (num.length > 1) {
-        num.splice(-1, 0, '"');
+        num.splice(-1, 0, '״');
       }
 
       return num.join('');
