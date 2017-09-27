@@ -186,10 +186,9 @@ export default function AramaicNumber(writing) {
 
   /**
    * Get number in alphabetic form if input is number, or numeric form if input
-   * is alphabetic.
-   * When passing a string, by default, it just adds up the numbers, regardless
-   * of position. By passing `true` as a second parameter, it will treat it as
-   * being ordered.
+   * is alphabetic. When passing a string, by default, it will be treated as
+   * ordered. By passing `truthy` as a second parameter, it will just add up the
+   * letter numeric values, regardless of position.
    *
    * When passing a number, a second parameter is available, `limit`. This will
    * limit the length of the returned string to a number of digits. For example:
@@ -223,7 +222,7 @@ export default function AramaicNumber(writing) {
 
     num = num.map(function g(n, i) {
       if (str) {
-        return limit && numbers[n] < numbers[num[i - 1]] && numbers[n] < 100
+        return !limit && numbers[n] < numbers[num[i - 1]] && numbers[n] < 100
           ? numbers[n] * 1000
           : numbers[n];
       }
@@ -257,4 +256,3 @@ export default function AramaicNumber(writing) {
     return num.reverse().join('');
   };
 }
-

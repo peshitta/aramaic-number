@@ -25,7 +25,7 @@ Following bundles are available:
 libraries and applications
 
 The package could also be downloaded directly from:
-[https://registry.npmjs.org/aramaic-number/-/aramaic-number-1.0.1.tgz](https://registry.npmjs.org/aramaic-number/-/aramaic-number-1.0.1.tgz)
+[https://registry.npmjs.org/aramaic-number/-/aramaic-number-1.0.2.tgz](https://registry.npmjs.org/aramaic-number/-/aramaic-number-1.0.2.tgz)
 
 ## More information
 
@@ -89,10 +89,9 @@ Convert numbers to/from various Aramaic writings. `hebrew`
 
 #### aramaicNumber.getNumber(number, limit) ⇒ <code>string</code>
 Get number in alphabetic form if input is number, or numeric form if input
-is alphabetic.
-When passing a string, by default, it just adds up the numbers, regardless
-of position. By passing `true` as a second parameter, it will treat it as
-being ordered.
+is alphabetic. When passing a string, by default, it will be treated as
+ordered. By passing `truthy` as a second parameter, it will just add up the
+letter numeric values, regardless of position.
 
 When passing a number, a second parameter is available, `limit`. This will
 limit the length of the returned string to a number of digits. For example:

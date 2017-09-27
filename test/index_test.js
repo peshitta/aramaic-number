@@ -47,12 +47,12 @@ describe('Hebrew', () => {
   });
   describe('Letters => Number', () => {
     it('General case', () => {
-      const number = mapper.getNumber('התשע״ד', true);
+      const number = mapper.getNumber('התשע״ד');
       const word = 5774;
       test.strictEqual(number, word, 'getNumber_generic with gershayim');
     });
     it('Truncate to Limit', () => {
-      const number = mapper.getNumber('תשע״ד', true);
+      const number = mapper.getNumber('תשע״ד');
       const word = 774;
       test.strictEqual(
         number,
@@ -61,7 +61,7 @@ describe('Hebrew', () => {
       );
     });
     it('Limit but un-truncated', () => {
-      const number = mapper.getNumber('התשע״ד', false);
+      const number = mapper.getNumber('התשע״ד', true);
       const word = 779;
       test.strictEqual(
         number,
@@ -70,22 +70,22 @@ describe('Hebrew', () => {
       );
     });
     it('טו case', () => {
-      const number = mapper.getNumber('ט״ו', true);
+      const number = mapper.getNumber('ט״ו');
       const word = 15;
       test.strictEqual(number, word, 'getNumber_טו');
     });
     it('טז case', () => {
-      const number = mapper.getNumber('ט״ז', true);
+      const number = mapper.getNumber('ט״ז');
       const word = 16;
       test.strictEqual(number, word, 'getNumber_טז');
     });
     it('יה case', () => {
-      const number = mapper.getNumber('יה', true);
+      const number = mapper.getNumber('יה');
       const word = 15;
       test.strictEqual(number, word, 'getNumber_יה');
     });
     it('יו case', () => {
-      const number = mapper.getNumber('יו', true);
+      const number = mapper.getNumber('יו');
       const word = 16;
       test.strictEqual(number, word, 'getNumber_יו');
     });
@@ -100,27 +100,27 @@ describe('Hebrew', () => {
       test.strictEqual(number, word, 'getNumber_ט');
     });
     it('General case with quote', () => {
-      const number = mapper.getNumber('התשע"ד', true);
+      const number = mapper.getNumber('התשע"ד');
       const word = 5774;
       test.strictEqual(number, word, 'getNumber_generic with quote');
     });
     it('Truncate to Limit with quote', () => {
-      const number = mapper.getNumber('תשע"ד', true);
+      const number = mapper.getNumber('תשע"ד');
       const word = 774;
       test.strictEqual(number, word, 'getNumber_generic shorter with quote');
     });
     it('Limit but un-truncated with quote', () => {
-      const number = mapper.getNumber('התשע"ד', false);
+      const number = mapper.getNumber('התשע"ד', true);
       const word = 779;
       test.strictEqual(number, word, 'getNumber_generic un-ordered with quote');
     });
     it('General case with single quote', () => {
-      const number = mapper.getNumber('התשע"ד', true);
+      const number = mapper.getNumber('התשע"ד');
       const word = 5774;
       test.strictEqual(number, word, 'getNumber_generic with single quote');
     });
     it('Truncate to Limit with single quote', () => {
-      const number = mapper.getNumber('תשע"ד', true);
+      const number = mapper.getNumber('תשע"ד');
       const word = 774;
       test.strictEqual(
         number,
@@ -129,7 +129,7 @@ describe('Hebrew', () => {
       );
     });
     it('Limit but un-truncated with single quote', () => {
-      const number = mapper.getNumber('התשע"ד', false);
+      const number = mapper.getNumber('התשע"ד', true);
       const word = 779;
       test.strictEqual(
         number,
@@ -165,17 +165,17 @@ describe('Syriac', () => {
   });
   describe('Letters => Number', () => {
     it('General case', () => {
-      const number = mapper.getNumber('ܗܬܫܥܕ', true);
+      const number = mapper.getNumber('ܗܬܫܥܕ');
       const word = 5774;
       test.strictEqual(number, word, 'getNumber_generic');
     });
     it('Truncate to Limit', () => {
-      const number = mapper.getNumber('ܬܫܥܕ', true);
+      const number = mapper.getNumber('ܬܫܥܕ');
       const word = 774;
       test.strictEqual(number, word, 'getNumber_generic shorter');
     });
     it('Limit but un-truncated', () => {
-      const number = mapper.getNumber('ܗܬܫܥܕ', false);
+      const number = mapper.getNumber('ܗܬܫܥܕ', true);
       const word = 779;
       test.strictEqual(number, word, 'getNumber_generic un-ordered');
     });
@@ -215,17 +215,17 @@ describe('CAL', () => {
   });
   describe('Letters => Number', () => {
     it('General case', () => {
-      const number = mapper.getNumber('ht$(d', true);
+      const number = mapper.getNumber('ht$(d');
       const word = 5774;
       test.strictEqual(number, word, 'getNumber_generic');
     });
     it('Truncate to Limit', () => {
-      const number = mapper.getNumber('t$(d', true);
+      const number = mapper.getNumber('t$(d');
       const word = 774;
       test.strictEqual(number, word, 'getNumber_generic shorter');
     });
     it('Limit but un-truncated', () => {
-      const number = mapper.getNumber('ht$(d', false);
+      const number = mapper.getNumber('ht$(d', true);
       const word = 779;
       test.strictEqual(number, word, 'getNumber_generic un-ordered');
     });

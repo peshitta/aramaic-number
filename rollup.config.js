@@ -9,9 +9,9 @@ const isDev = process.env.BUILD === 'dev';
 const banner = isProduction
   ? '/**\n' +
     '* @file Convert numbers to aramaic representation, and vice-versa.\n' +
-    '* @version 1.0.1\n' +
+    '* @version 1.0.2\n' +
     '* @copyright (c) 2017 Greg Borota.\n' +
-    '* Using work from js-gematriya - Copyright (c) 2014 Eyal Schachter\n' +
+    '* Using code from hebcal-js - Copyright (c) 2014 Eyal Schachter\n' +
     '* @license MIT\n' +
     '*\n' +
     '* Permission is hereby granted, free of charge, to any person obtaining a copy\n' +
