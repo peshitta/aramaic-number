@@ -8,7 +8,7 @@
 [![devDependencies Status](https://david-dm.org/peshitta/aramaic-number/dev-status.svg)](https://david-dm.org/peshitta/aramaic-number?type=dev)
 [![Coverage Status](https://coveralls.io/repos/github/peshitta/aramaic-number/badge.svg?branch=master)](https://coveralls.io/github/peshitta/aramaic-number?branch=master)
 
-Convert numbers to aramaic representation, and vice-versa.
+Convert numbers to aramaic letters and back.
 
 ## Installation
 
@@ -25,7 +25,7 @@ Following bundles are available:
 libraries and applications
 
 The package could also be downloaded directly from:
-[https://registry.npmjs.org/aramaic-number/-/aramaic-number-1.0.2.tgz](https://registry.npmjs.org/aramaic-number/-/aramaic-number-1.0.2.tgz)
+[https://registry.npmjs.org/aramaic-number/-/aramaic-number-1.0.3.tgz](https://registry.npmjs.org/aramaic-number/-/aramaic-number-1.0.3.tgz)
 
 ## More information
 
@@ -60,24 +60,24 @@ npm run build
 
 ## API Reference
 
-* [aramaic](#module_aramaic)
-    * [.AramaicNumber](#module_aramaic.AramaicNumber)
-        * [new AramaicNumber(writing)](#new_module_aramaic.AramaicNumber_new)
-        * [.getNumber(number, limit)](#module_aramaic.AramaicNumber+getNumber) ⇒ <code>string</code>
+* [aramaicNumber](#module_aramaicNumber)
+    * [.AramaicNumber](#module_aramaicNumber.AramaicNumber)
+        * [new AramaicNumber(writing)](#new_module_aramaicNumber.AramaicNumber_new)
+        * [.getNumber(number, limit)](#module_aramaicNumber.AramaicNumber+getNumber) ⇒ <code>string</code>
 
-<a name="module_aramaic.AramaicNumber"></a>
+<a name="module_aramaicNumber.AramaicNumber"></a>
 
-### aramaic.AramaicNumber
+### aramaicNumber.AramaicNumber
 Convert numbers to/from various Aramaic writings. `hebrew`
 `syriac` and `cal` are supported at this time.
 
-**Kind**: static class of [<code>aramaic</code>](#module_aramaic)  
+**Kind**: static class of [<code>aramaicNumber</code>](#module_aramaicNumber)  
 
-* [.AramaicNumber](#module_aramaic.AramaicNumber)
-    * [new AramaicNumber(writing)](#new_module_aramaic.AramaicNumber_new)
-    * [.getNumber(number, limit)](#module_aramaic.AramaicNumber+getNumber) ⇒ <code>string</code>
+* [.AramaicNumber](#module_aramaicNumber.AramaicNumber)
+    * [new AramaicNumber(writing)](#new_module_aramaicNumber.AramaicNumber_new)
+    * [.getNumber(number, limit)](#module_aramaicNumber.AramaicNumber+getNumber) ⇒ <code>string</code>
 
-<a name="new_module_aramaic.AramaicNumber_new"></a>
+<a name="new_module_aramaicNumber.AramaicNumber_new"></a>
 
 #### new AramaicNumber(writing)
 
@@ -85,7 +85,7 @@ Convert numbers to/from various Aramaic writings. `hebrew`
 | --- | --- | --- |
 | writing | <code>string</code> \| <code>undefined</code> | can be: `hebrew`, `syriac` or `cal`. Defaults to `cal`, if value is not provided. |
 
-<a name="module_aramaic.AramaicNumber+getNumber"></a>
+<a name="module_aramaicNumber.AramaicNumber+getNumber"></a>
 
 #### aramaicNumber.getNumber(number, limit) ⇒ <code>string</code>
 Get number in alphabetic form if input is number, or numeric form if input
@@ -98,11 +98,11 @@ limit the length of the returned string to a number of digits. For example:
 
 ```js
 getNumber(5774) // התשע״ד - ordinary
-getNumber(5774, 3) // תשע״ד - cropped to 774
+getNumber(5774, 3) // תשע״ד - truncated to 774
 getNumber(5774, 7) // התשע״ד - kept at 5774
 ```
 
-**Kind**: instance method of [<code>AramaicNumber</code>](#module_aramaic.AramaicNumber)  
+**Kind**: instance method of [<code>AramaicNumber</code>](#module_aramaicNumber.AramaicNumber)  
 **Returns**: <code>string</code> - converted number  
 
 | Param | Type | Description |

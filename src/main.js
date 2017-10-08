@@ -1,5 +1,4 @@
-/** @module aramaic */
-
+/** @module aramaicNumber */
 /**
  * Hebrew letter to number mapping
  * @private
@@ -145,7 +144,7 @@ const numberMaps = Object.freeze(
 const invert = obj => {
   const result = Object.create(null, {});
   const keys = Object.keys(obj);
-  for (let i = 0, { length } = keys; i < length; i++) {
+  for (let i = 0, len = keys.length; i < len; i++) {
     Object.defineProperty(result, obj[keys[i]], {
       value: keys[i],
       enumerable: true
@@ -195,10 +194,10 @@ export default function AramaicNumber(writing) {
    *
    * ```js
    * getNumber(5774) // התשע״ד - ordinary
-   * getNumber(5774, 3) // תשע״ד - cropped to 774
+   * getNumber(5774, 3) // תשע״ד - truncated to 774
    * getNumber(5774, 7) // התשע״ד - kept at 5774
    * ```
-   * @alias module:aramaic.AramaicNumber#getNumber
+   * @alias module:aramaicNumber.AramaicNumber#getNumber
    * @param { string } number input number to be converted
    * @param { number|boolean|undefined } limit maximum number of characters
    * @returns { string } converted number
@@ -226,10 +225,10 @@ export default function AramaicNumber(writing) {
           ? numbers[n] * 1000
           : numbers[n];
       }
-      if (parseInt(n, 10) * (10 ** i) > 1000) {
+      if (parseInt(n, 10) * 10 ** i > 1000) {
         return g(n, i - 3);
       }
-      return letters[parseInt(n, 10) * (10 ** i)];
+      return letters[parseInt(n, 10) * 10 ** i];
     });
 
     if (str) {
