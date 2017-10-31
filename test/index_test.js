@@ -19,6 +19,11 @@ describe('Hebrew', () => {
       const word = 'תשע״ד';
       test.strictEqual(number, word, 'getNumber_generic');
     });
+    it('0 number', () => {
+      const number = mapper.getNumber(0);
+      const word = '';
+      test.strictEqual(number, word, 'getNumber_zero');
+    });
     it('Limit but un-truncated', () => {
       const number = mapper.getNumber(5774, 7);
       const word = 'התשע״ד';

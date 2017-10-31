@@ -1,6 +1,6 @@
 {
   "name": "aramaic-number",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Convert numbers to aramaic letters and back.",
   "main": "build/aramaic-number.js",
   "mainMin": "build/aramaic-number.min.js",
@@ -63,9 +63,9 @@
   "dependencies": {},
   "devDependencies": {
     "coveralls": "^3.0.0",
-    "eslint": "^4.8.0",
-    "eslint-config-airbnb-base": "^12.0.2",
-    "eslint-plugin-import": "^2.7.0",
+    "eslint": "^4.10.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
     "istanbul": "^0.4.5",
     "jsdoc-to-markdown": "^3.0.0",
     "mocha": "^4.0.1",
