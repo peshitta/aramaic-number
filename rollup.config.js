@@ -8,7 +8,7 @@ const isDev = process.env.BUILD === 'dev';
 const banner = isProduction
   ? '/**\n' +
     '* @file Convert numbers to aramaic letters and back.\n' +
-    '* @version 1.0.5\n' +
+    '* @version 1.0.6\n' +
     '* @author Greg Borota\n' +
     '* @copyright (c) 2017 Greg Borota.\n' +
     '* Includes code from hebcal-js - Copyright (c) 2014 Eyal Schachter\n' +
@@ -49,13 +49,10 @@ const plugins = [buble()];
 const targets = [
   {
     input,
-    output: [{ file: pkg.main, format }],
+    output: [{ file: pkg.main, format, name, globals, sourcemap }],
     external,
     plugins: plugins.slice(0),
-    name,
-    globals,
-    banner,
-    sourcemap
+    banner
   }
 ];
 
@@ -83,11 +80,9 @@ if (isProduction) {
   // browser/nodejs-friendly minified UMD build
   targets.push({
     input,
-    output: [{ file: pkg.mainMin, format }],
+    output: [{ file: pkg.mainMin, format, name, globals }],
     external,
     plugins,
-    name,
-    globals,
     banner
   });
 } else if (!isDev) {

@@ -166,19 +166,47 @@ const letterMaps = Object.create(null, {
   cal: { value: invert(calNumbers), enumerable: true }
 });
 
+const hebrewNumRegex = /('|"|׳|״)/g;
+
 /**
-  * @class AramaicNumber
-  * @classdesc Convert numbers to/from various Aramaic writings. `hebrew`
-  * `syriac` and `cal` are supported at this time.
-  * @static
-  * @constructor
-  * @param { string|undefined } writing can be: `hebrew`, `syriac` or `cal`.
-  * Defaults to `cal`, if value is not provided.
+ * Replace letters with same value and remove valueless symbols
+ * @private
+ * @const
+ * @type { Object.<string, function> }
+ */
+const replaceMaps = Object.create(null, {
+  hebrew: {
+    value: num =>
+      num
+        .replace(hebrewNumRegex, '')
+        .replace('ך', 'כ')
+        .replace('ם', 'מ')
+        .replace('ן', 'נ')
+        .replace('ף', 'פ')
+        .replace('ץ', 'צ'),
+    enumerable: true
+  },
+  syriac: { value: num => num, enumerable: true },
+  cal: {
+    value: num => num.replace('P', 'p').replace('&', '$'),
+    enumerable: true
+  }
+});
+
+/**
+ * @class AramaicNumber
+ * @classdesc Convert numbers to/from various Aramaic writings. `hebrew`
+ * `syriac` and `cal` are supported at this time.
+ * @static
+ * @constructor
+ * @param { string|undefined } writing can be: `hebrew`, `syriac` or `cal`.
+ * Defaults to `cal`, if value is not provided.
  */
 export default function AramaicNumber(writing) {
   const w = (writing || 'cal').toLowerCase();
   const numbers = numberMaps[w];
   const letters = letterMaps[w];
+  const replace = replaceMaps[w];
   if (!numbers) {
     throw new TypeError(`Unsupported ${writing} writing`);
   }
@@ -209,7 +237,7 @@ export default function AramaicNumber(writing) {
     }
     const str = typeof num === 'string';
     if (str) {
-      num = num.replace(/('|")/g, '').replace(/(׳|״)/g, '');
+      num = replace(num);
     }
     num = num
       .toString()
